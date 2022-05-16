@@ -1,0 +1,71 @@
+{% extends 'Admin/home.html' %}
+
+{% block menu %}
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/home">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/Booking">Booking</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/uploads">Uploads</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/ViewItems">AddItems</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/reviews">Reviews</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/Admin/logout">signOut</a>
+</li>
+
+{% endblock %}
+
+{% block profile %}
+<div class="profile">
+    <div class="img">
+        <!-- {% if user %} -->
+        <a class="navbar-brand" href=""><i class="fa fa-user-circle-o" style="font-size:48px;color:white"></i></a>
+        <h3>{{user}}</h3>
+        <ul class="nav justify-content-center flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/Admin/edit">Edit profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/Admin/logout">sign out</a>
+            </li>
+        </ul>
+        <!-- {% endif %} -->
+    </div>
+</div>
+{% endblock %}
+<!-- content -->
+{% block content %}
+{% if res %}
+<div class="container table-responsive" style="padding-top: 100px;">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead bg-dark text-primary">
+            <tr>
+                <th>ID</th>
+                <th>Uploads</th>
+                <th>Discription</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in res %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{res[2]}}</td>
+                <td>{{res[1]}}</td>
+                <th><a href="/Admin/EditView/{{res[0]}}" class="btn btn-primary">Edit</a></th>
+                <th><a href="/Admin/UploadDel/{{res[0]}}" class="btn btn-danger">Delete</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

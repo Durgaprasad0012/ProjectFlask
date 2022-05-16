@@ -1,0 +1,31 @@
+{% extends 'Admin/menu.html' %}
+{% block content %}
+
+<div class="container" style="padding-top: 100px; ">
+    {% if res %}
+    <a href="/Admin/claerReview" class="btn btn-outline-secondary float-end d-block">Clear All</a>
+    <table class="table table-bordered rounded table-responsive-lg table-striped table-hover">
+        <thead class="thead bg-dark text-light">
+            <tr>
+                <th>Name</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in res %}
+            <tr>
+                <td>{{res[1].title()}}</td>
+                <td>{{res[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if msg %}
+    <div class="alert alert-success alert-dismissible text-center">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        {{msg}}
+      </div>
+      {% endif %}
+</div>
+{% endblock %}

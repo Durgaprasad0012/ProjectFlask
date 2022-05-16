@@ -1,0 +1,53 @@
+{% extends 'Admin/menu.html' %}
+
+
+{% block profile %}
+<div class="profile">
+    <div class="img">
+        <!-- {% if user %} -->
+        <a class="navbar-brand" href=""><i class="fa fa-user-circle-o" style="font-size:48px;color:white"></i></a>
+        <h3>{{user}}</h3>
+        <ul class="nav justify-content-center flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/Admin/edit">Edit profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="/Admin/logout">sign out</a>
+            </li>
+        </ul>
+        <!-- {% endif %} -->
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="login-box mx-auto">
+        <form action="/Admin/editProfile" method="post" class="p-2" autocomplete="off">
+            <h2 class="text-center text-light">Edit-Profile</h2>
+            <div class="form-floating mb-3 mt-3">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="opswd" required>
+                <label for="pwd">Old-Password</label>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="npswd" required>
+                <label for="pwd">New-Password</label>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="cpswd" required>
+                <label for="pwd">Conform-Password</label>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary w-50 mx-auto d-block">Submit</button>
+            <span class="w-100 text-center text-danger">
+                {% if msg %}
+                {{msg}}
+                {% endif %}
+            </span>
+        </form>
+
+    </div>
+</div>
+{% endblock%}

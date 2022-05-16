@@ -1,0 +1,42 @@
+{% extends 'public/home.html' %}
+
+{% block banner %}
+
+<div class="gallery">
+    <h2 class="text-center fw-bolder text-success">Gallery</h2>
+    <div class="menus">
+        <a href="/Gallery">Photos</a> ||
+        <a href="/Gallery/videos">Videos</a>
+    </div>
+    {% if msg1 %}
+    <div class="alert alert-danger alert-dismissible  fade show text-center">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        {{msg1}}
+    </div>
+    {% endif %}
+    <div class="display">
+        {% if photo %}
+        {% for i in photo %}
+        <a href="/Gallery/photo/{{i[0]}}">
+            <div class="img-box">
+                <abbr title="{{i[1]}}">
+                    <img src="../../static/uploads/{{i[2]}}" alt="img">
+                </abbr>
+            </div>
+        </a>
+        {% endfor %}
+        {% endif %}
+        {% if video %}
+        {% for v in video %}
+        <a href="/Gallery/media/{{v[0]}}">
+            <div class="img-box">
+                <abbr title="{{v[1]}}">
+                    <video src="../../static/uploads/{{v[2]}}" autoplay loop muted></video>
+                </abbr>
+            </div>
+        </a>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

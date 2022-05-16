@@ -1,0 +1,29 @@
+{% extends 'Admin/menu.html' %}
+
+{% block content %}
+{% if res %}
+<div class="container-fluid">
+    <div class="login-box mx-auto">
+        {% for res in res %}
+        <form action="/Admin/Editpost/{{res[0]}}" method="post" class="p-4" autocomplete="off" enctype="multipart/form-data">
+            <h2 class="text-center text-light">Uploads</h2>
+            <div class="form-floating mb-3 mt-3">
+                <input type="file" class="form-control" onfocus="this.value=''" id="file" placeholder="Choose your file" name="file" value="{{res[2]}}" required>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <textarea class="form-control" id="discript" onfocus="this.innerHTML=''" placeholder="Write here...!" name="descr" required style="background: none;border-bottom: 1px solid;">{{res[1]}}</textarea>
+                <label for="discript">Discription</label>
+            </div>
+            
+            <button type="submit" class="btn btn-outline-secondary w-50 mx-auto d-block">Submit</button>
+            <span class="w-100 text-center text-danger">
+                {% if msg %}
+                {{msg}}
+                {% endif %}
+            </span>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

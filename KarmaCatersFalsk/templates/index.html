@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karma Catres</title>
+    <link rel="icon" href="{{url_for('static', filename = 'img/logo.png')}}">
+    <!-- ICON -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'lib/bootstrap.min.css')}}">
+    <script src="{{url_for('static', filename = 'lib/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'lib/jquery-1.6.1.min.js')}}"></script>
+
+
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="navigation fixed-top">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="/"><img src="{{url_for('static', filename = 'img/logo.png')}}" alt="">
+                        KarmaCaters</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <i class="material-icons">dehaze</i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav ms-auto">
+                            {% block menu %}
+
+                            {% endblock %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- banner -->
+    <section>
+        {% block banner %} {% endblock %}
+    </section>
+    <!-- banner end -->
+    <!-- content -->
+    <section>
+        <div id="content" class="content-section">
+            <div class="content-box container">
+                <div class="img">
+                </div>
+                <h2>K R Hemand</h2>
+                <p>C E O of Karma Caters</p>
+                <p>Thirumuppam road</p>
+                <p>varapuzha P O</p>
+                <p>Ph: 8547579358 | 8089459358</p>
+            </div>
+            <table class="table table-borderless container">
+                <tr>
+                    <th>
+                        <dl>
+                            <dt class="text-primary">Our Mission</dt>
+                            <dd style="text-align: justify;"> To become a global leader in event management by constantly improvising and providing righteous food and hospitality</dd>
+                        </dl>
+                    </th>
+                    <th>
+                        <dl>
+                            <dt class="text-primary">Our Vision</dt>
+                            <dd style="text-align: justify;">To embark on a spirit of quality, homeliness, and team effort on every occasion to make our customers satisfied.</dd>
+                        </dl>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        {% block content %} {% endblock %}
+    </section>
+    <!-- content end -->
+    <!-- footer -->
+    <footer>
+        <div id="contactInfo" class="review-section">
+            {% block footer %} {% endblock %}
+        </div>
+        <span>design and developed by <b>Durgaprasad Subramanian</b></span>
+    </footer>
+    <!-- footer end -->
+
+    <script src="{{url_for('static', filename = 'js/index.js')}}"></script>
+</body>
+
+</html>

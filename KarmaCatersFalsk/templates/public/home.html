@@ -1,0 +1,81 @@
+{% extends 'public/menu.html' %}
+<!-- banner section -->
+{% block banner %}
+<div id="banner" class="banner container-fluid">
+    <div class="content container">
+        <h2>Karma Caters</h2>
+        <p>We Karma Caters believes in good food and homely service and is happy to achieve the highest growth within a short period.  We specialize in bringing diversifications from South Indian Sadhya to Continental Cuisine. We envisage a better event management service by perceiving savors of flavors.</p>
+        <a href="#Booking" id="book">Book Now</a>
+    </div>
+</div>
+{% endblock %}
+
+<!-- banner section end -->
+
+<!-- content section -->
+{% block content %}
+<div id="Booking" class="Item-View container-fluid">
+    {% if res %}
+    {% for res in res %}
+    <div class="item-box">
+        <div class="img-box">
+            <img src="../../static/Items/{{res[2]}}" alt="img">
+        </div>
+        <h4 style="text-transform: uppercase;">{{res[1]}}</h4>
+        <a href="/booking/{{res[0]}}" class="btn btn-outline-light d-block mx-auto">Book Now</a>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if msg %}
+    <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        {{msg}}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+<!-- content section end -->
+
+<!-- footer section -->
+{% block footer %}
+<div class="info-box">
+    <div class="img-box">
+
+    </div>
+    <p>We Karma Caters believes in good food and homely service and is happy to achieve the highest growth within a short period.  We specialize in bringing diversifications from South Indian Sadhya to Continental Cuisine. We envisage a better event management service by perceiving savors of flavors.</p>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-item fa fa-facebook-f text-primary fw-bold" target="_blank"
+                href="https://www.facebook.com/Karma-Caters-125996036328578/"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fa fa-youtube-play text-danger fw-bold" target="_blank"
+                href="https://youtube.com/channel/UC5aXUWRU0mKrRie0BT11aWQ"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fa fa-whatsapp text-success fw-bold" target="_blank"
+                href="https://wa.me/message/S4GBGRW5ORAAA1"></a>
+        </li>
+    </ul>
+</div>
+<div class="review">
+    <form action="/review" method="post" autocomplete="off">
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="email" placeholder="fullname" name="name" required
+                style="text-transform: capitalize;">
+            <label for="email">Name</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+            <input type="email" class="form-control" id="email" placeholder="example@gmail.com" name="email" required>
+            <label for="email">example@mail.com</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+            <textarea class="form-control" id="pwd" placeholder="write your opinion.." name="feeds" required
+                style="text-transform: capitalize;"></textarea>
+            <label for="pwd">write your opinion..</label>
+        </div>
+        <button type="submit" class="btn btn-secondary w-100 pt-2 pb-2">Send <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+    </form>
+</div>
+{% endblock %}
+<!-- footer section end -->

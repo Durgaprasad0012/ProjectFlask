@@ -1,0 +1,39 @@
+{% extends 'Admin/menu.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+    <div class="card w-75 mx-auto">
+        <form action="/Admin/AddItems" method="post" class="p-4  w-100 mx-auto" autocomplete="off"
+            enctype="multipart/form-data">
+            <h2 class="text-center text-dark">Add Items</h2>
+            <div class="form-floating mb-3 mt-3">
+                <input type="file" class="form-control" id="file" placeholder="Choose your file" name="file" required>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="text" class="form-control" id="discript" placeholder="Write here...!" name="descr" required
+                    style="background: none; text-transform: capitalize; border: none; border-bottom: 1px solid;">
+                <label for="discript">Title</label>
+            </div>
+
+            <button type="submit" class="btn btn-outline-secondary w-50 mx-auto d-block">Submit</button>
+            <span class="w-100 text-center text-danger">
+                {% if msg %}
+                {{msg}}
+                {% endif %}
+            </span>
+        </form>
+    </div>
+    <hr>
+    {% if res %}
+    <table class="table table-borderd w-75 mx-auto table-responsive-lg table-borderless table-striped table-hover mt-5">
+        {% for res in res %}
+        <tr style="border-bottom: 2px solid;">
+            <th><img class="mx-auto d-block" src="../../static/Items/{{res[2]}}" style="width: 200px;object-fit: cover;"></a></th>
+            <td>{{res[1]}}</td>
+            <th><a href="/Admin/deleteItem/{{res[0]}}" class="btn btn-danger  w-100 mt-5">Delete</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

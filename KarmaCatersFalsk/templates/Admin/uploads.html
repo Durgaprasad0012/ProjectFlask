@@ -1,0 +1,27 @@
+{% extends 'Admin/menu.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="login-box mx-auto">
+        <form action="/Admin/addpost" method="post" class="p-4" autocomplete="off" enctype="multipart/form-data">
+            <h2 class="text-center text-light">Uploads</h2>
+            <div class="form-floating mb-3 mt-3">
+                <input type="file" class="form-control" id="file" placeholder="Choose your file" name="file" required>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <textarea class="form-control" id="discript" placeholder="Write here...!" name="descr" required style="background: none;border-bottom: 1px solid;"></textarea>
+                <label for="discript">Discription</label>
+            </div>
+            
+            <button type="submit" class="btn btn-outline-secondary w-50 mx-auto d-block">Submit</button>
+            <span class="w-100 text-center text-danger">
+                {% if msg %}
+                {{msg}}
+                {% endif %}
+            </span>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

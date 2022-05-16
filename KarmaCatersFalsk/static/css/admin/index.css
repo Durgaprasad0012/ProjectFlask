@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Tahoma;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* header */
+.navbar{
+    margin: 0;
+    background-color: #00000056;
+    transition: background-color .3s linear;
+}
+.navbar:hover{
+    background-color: #000;
+}
+.profile{
+    visibility: hidden;
+    width: 300px;
+    height: 86vh;
+    transition: visibility 1s ease-out;
+    position: fixed;
+    top: 14vh;
+    background-color: #00000056;
+    box-shadow: 3px 0px 5px gray;
+}
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img h3{
+    width: 300px;
+    margin: 0;
+    text-align: center;
+    border-bottom: 2px solid white;
+    color: #fff;
+}
+/* header end */
+
+/* container */
+
+.content{
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+}
+
+.content .login-box{
+    width: 80vw;
+    margin-top: 20vh;
+    background-color: #0000002d;
+    border: none;
+    box-shadow: 0px 0px 5px black;
+}
+.form-floating input{
+    border: none;
+    background: none;
+    border-bottom: 2px solid black;
+}
+
+/* container end*/
+
+/* Uploads View */
+
+.container table{
+    border-radius: 20px;
+    margin: auto;
+}
+

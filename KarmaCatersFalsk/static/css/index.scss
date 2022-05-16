@@ -1,0 +1,436 @@
+/* variables */
+$_Common-black: #000;
+$_Common-white: #fff;
+$_header: #ff5e08;
+$_trans: #ff5e0878;
+
+
+$_font-normal: 20px;
+$_font-Upper: 65px;
+
+/* Functions */
+@mixin fullWidth {
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin width {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin font {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* coding... */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma';
+    margin: 0px;
+    background: linear-gradient(#d286036a, #ff400090), url(../img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* header */
+.navigation {
+    width: 100vw;
+    height: 15vh;
+    background: none;
+    transition: background-color .5s linear;
+
+    .navbar {
+        background-color: $_trans;
+        transition: background-color .5s linear;
+
+        .navbar-brand {
+            color: $_Common-white;
+            transition: color .5s linear;
+            @include font();
+            text-shadow: 0px 0px 5px $_Common-white;
+        }
+
+        .navbar-brand img {
+            width: 70px;
+            height: 70px;
+            background: none;
+        }
+
+        .nav-item {
+            a {
+                visibility: hidden;
+                transition: visibility .5s linear;
+                color: $_Common-white;
+                @include font();
+                letter-spacing: 1px;
+            }
+        }
+
+
+        .collapse {
+            color: $_Common-white;
+        }
+    }
+}
+
+.navbar:hover {
+    background-color: $_Common-white;
+    color: $_Common-black;
+    text-shadow: 0px 0px 5px $_Common-white;
+    .navbar-brand{
+        color: $_Common-black;
+    }
+
+    .nav-item {
+        a {
+            visibility: visible;
+            color: $_Common-black;
+            letter-spacing: 1px;
+        }
+    }
+
+    .collapse {
+        color: $_Common-black;
+    }
+}
+
+/* header end */
+
+/* banner */
+.banner {
+    @include fullWidth();
+    background: linear-gradient(#ef8f3c19, #f86605f3), url(../img/cateers.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .content {
+        @include width();
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            align-self: flex-start;
+            color: $_Common-white;
+            text-shadow: 0px 0px 10px $_Common-white;
+            @include font();
+            font-size: $_font-Upper;
+        }
+
+        p {
+            color: $_Common-white;
+            letter-spacing: 2px;
+            text-align: justify;
+            font-size: $_font-normal;
+        }
+
+        a {
+            align-self: flex-start;
+            width: 250px;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            border: none;
+            background-color: $_Common-white;
+            text-align: center;
+            color: none;
+            @include font();
+            display: none;
+        }
+    }
+}
+
+/* banner end */
+
+
+/* Gallery section */ 
+.gallery{
+    width: 100%;
+    padding-top: 100px;
+    .menus{
+        text-align: center;
+        border-bottom: 1px solid;
+        border-radius:20px ;
+        a{
+            text-decoration: none;
+            @include font();
+        }
+    }
+    .display{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .img-box{
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+            img{
+                cursor: grabbing;
+                width: 300px;
+                height: 300px;
+                object-fit:cover;
+                transform: scale(1);
+                transition: transform .5s linear; 
+            }
+            video{
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                cursor: grabbing;
+            }
+            
+        }
+        .img-box:hover{
+            box-shadow: 0px 0px 3px $_Common-white;
+            img{
+                transform: scale(1.01);
+            }
+        }
+    }
+}
+/* Gallery section end */  
+
+/* content */
+.content-section {
+    // @include fullWidth();
+    padding-top: 100px;
+    background: linear-gradient(#ffffffab, #fff);
+    display: none;
+
+    .content-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+        .img {
+            width: 200px;
+            height: 150px;
+            background-image: url(../img/ONNER.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h2 {
+            @include font();
+            color: $_header;
+        }
+
+        p {
+            color: #2d0af8c9;
+            font-weight: bold;
+        }
+    }
+}
+.Item-View {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 100px;
+
+    .item-box {
+        width: 330px;
+        padding: 5px;
+        margin: 10px;
+        background-color: #f97408bf;
+        border: none;
+        border-top-right-radius: 10px;
+        box-shadow: 0px 0px 0px $_Common-white;
+        transition: box-shadow .05s linear;
+
+        .img-box {
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            background: none;
+            border: none;
+            overflow: hidden;
+
+            img {
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                transform: scale(1);
+                transition: transform .5s ease-in;
+            }
+        }
+
+        h4 {
+            height: 45px;
+            @include font();
+            font-size: $_font-normal;
+            color: $_Common-white;
+            text-align: center;
+        }
+    }
+
+    .item-box:hover {
+        box-shadow: 0px 0px 5px $_Common-white;
+
+        img {
+            transform: scale(1.1)
+        }
+    }
+}
+
+/* content end */
+/* booking */ 
+.booking-view{
+    padding-top: 100px;
+    .item-list-view{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px dotted $_Common-white;
+        }
+        h2{
+            text-transform: uppercase;
+            text-decoration: underline $_header;
+        }
+    }
+    .details{
+        width: 100%;
+        padding: 5%;
+        background-color: #ff5e0875;
+        border-radius: 10px;
+        input,textarea{
+            background: none;
+            border: none;
+            border-bottom: 1px solid $_Common-white;
+            color: $_Common-white;
+        }
+        label{
+            color: $_Common-white;
+        }
+    }
+}
+/* booking end */ 
+
+/* footer */
+footer {
+    @include fullWidth();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $_Common-white;
+
+    .review-section {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+
+        .info-box {
+            width: 350px;
+            border: none;
+            background: none;
+
+            .img-box {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin: auto;
+                background-color: $_Common-white;
+                background-image: url(../img/logo.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                box-shadow: 0px 0px 15px $_Common-white;
+            }
+
+            p {
+                color: $_header;
+                text-align: justify;
+            }
+
+            .nav {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+
+        .review {
+            width: 500px;
+
+            input,
+            textarea {
+                border: none;
+                background: none;
+                border-bottom: 1px solid $_header;
+            }
+
+            label {
+                color: blue;
+            }
+        }
+    }
+
+    span {
+        color: blue;
+
+        b {
+            color: $_header;
+        }
+    }
+
+}
+
+/* footer end */
+
+/* media Query */
+
+@media (max-width : '400px') {
+    .banner {
+        .content {
+            h2 {
+                font-size: 35px;
+            }
+        }
+    }
+
+    .content-section {
+        .content-box {
+            img {
+                width: 50px;
+                height: 25px;
+            }
+        }
+    }
+
+    .review-section {
+        .review {
+            width: 290px;
+        }
+    }
+}

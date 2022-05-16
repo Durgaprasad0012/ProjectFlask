@@ -1,0 +1,75 @@
+{% extends 'Admin/menu.html' %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+    <div class="table-responsive">
+        {% if new %}
+        <table class="table table-striped table-hover table-bordered table-secondary">
+            <thead class="thead bg-dark text-primary">
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Order Item</th>
+                    <th>Place</th>
+                    <th>Quantity</th>
+                    <th style="background-color: #0c13eb8f;">Ordered Date</th>
+                    <th>Ordered Time</th>
+                    <th>Booking Date</th>
+                </tr>
+            </thead>
+            {% for res in new %}
+            <tr>
+                <td><a href="/Admin/approved/{{res[0]}}" class="btn btn-light">Approved</a></td>
+                <td>{{loop.index}}</td>
+                <td>{{res[1]}}</td>
+                <td>{{res[2]}}</td>
+                <td>{{res[3]}}</td>
+                <td>{{res[4]}}</td>
+                <td>{{res[5]}}</td>
+                <td>{{res[6]}}</td>
+                <td style="color: #0c13eb8f;">{{res[7]}}</td>
+                <td>{{res[8]}}</td>
+                <td>{{res[9]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <hr>
+        {% if res %}
+        <table class="table table-striped table-hover table-bordered table-secondary">
+            <thead class="thead bg-dark text-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Order Item</th>
+                    <th>Place</th>
+                    <th>Quantity</th>
+                    <th style="background-color: #0c13eb8f;">Ordered Date</th>
+                    <th>Ordered Time</th>
+                    <th>Booking Date</th>
+                </tr>
+            </thead>
+            {% for res in res %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{res[0]}}</td>
+                <td>{{res[1]}}</td>
+                <td>{{res[2]}}</td>
+                <td>{{res[3]}}</td>
+                <td>{{res[4]}}</td>
+                <td>{{res[5]}}</td>
+                <td style="color: #0c13eb8f;">{{res[6]}}</td>
+                <td>{{res[7]}}</td>
+                <td>{{res[8]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

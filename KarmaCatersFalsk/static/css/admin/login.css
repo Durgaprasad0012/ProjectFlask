@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(rgba(13, 13, 13, 0.473), #fff);
+}
+.login-box{
+    width: 600px;
+    border: none;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    background-color: #063c475b;
+    box-shadow: 0px 0px 5px gray;
+}
+
+
+@media screen and (max-width:400px) {
+    .login-box{
+        width: 300px;
+    }
+}

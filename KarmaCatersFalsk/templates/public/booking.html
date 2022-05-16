@@ -1,0 +1,48 @@
+{% extends 'public/home.html' %}
+
+{% block banner %}
+<div class="booking-view container-fluid">
+    {% if res1 %}
+    {% for res in res1 %}
+    <div class="item-list-view">
+        <img src="../../static/Items/{{res[2]}}" alt="img">
+        <h2 class="text-center fw-bold text-primary">{{res[1]}}</h2>
+    </div>
+    <div class="details">
+        <form action="/BookingInfo/{{res[0]}}" method="post" autocomplete="off">
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="email"  placeholder="fullname" name="name" required
+                style="text-transform: capitalize;">
+                <label for="email">Name</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" name="email" required>
+                <label for="email">example@mail.com</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="number" class="form-control" id="contact" placeholder="Contact number" pattern="[0-9]{5}-[0-9]{5}" name="contact" required>
+                <label for="contact">Contact number</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <textarea class="form-control" id="place" placeholder="place address" name="place" required style="text-transform: capitalize;"></textarea>
+                <label for="place">Place address</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="number" class="form-control" id="qnt" placeholder="Quantity" name="qunt" required>
+                <label for="qnt">Quantity</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input placeholder="Expected Date" type="date" class="form-control" id="date" name="date" required>
+                <label for="date">Expected Date</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+                <input type="time" class="form-control" id="time" placeholder="time" name="time" required>
+                <label for="time">Expected Time</label>
+            </div>
+            <button type="submit" class="btn btn-danger w-100 pt-2 pb-2">Book</button>
+        </form>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

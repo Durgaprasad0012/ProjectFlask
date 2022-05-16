@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>karma Caters</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #25252564;
+        }
+
+        div {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        a {
+            position: absolute;
+            top: 0;
+            left: 90%;
+            font-size: 40px;
+            text-decoration: none;
+            color: white;
+            font-family: Tahoma;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+        span{
+            position: fixed;
+            bottom: 100px; left: 10px;
+            font-style: oblique;
+            letter-spacing: 2px;
+            font-weight: bolder;
+            color: #020aff;
+            background-color: #eaebf254;
+            border-radius: 2px;
+        }
+
+        img {
+            width: 100%;
+            height: 90%;
+            z-index: -5;
+            background-color: aqua;
+            object-fit: contain;
+            transition: transform 0.25s ease-in;
+            cursor: zoom-in;
+        }
+
+        input[type=checkbox]:checked~label>img {
+            transform: scale(2);
+            cursor: zoom-out;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/close">x</a>
+    <div>
+        {% if res %}
+        <input type="checkbox" id="zoomCheck">
+        <label for="zoomCheck">
+            {% for res in res %}
+            <span>{{res[1]}}</span>
+            <img src="../../static/uploads/{{res[2]}}" alt="img">
+            {% endfor %}
+        </label>
+        {% endif %}
+        {% if v %}
+        {% for v in v %}
+        <span>{{v[1]}}</span>
+        <video src="../../static/uploads/{{v[2]}}" autoplay controls loop width="100%" style="object-fit: cover;"></video>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>
