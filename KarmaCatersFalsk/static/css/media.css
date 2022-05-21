@@ -1,0 +1,59 @@
+@media screen and (max-width: 900px) {
+  .bookmark {
+    top: 88vh;
+  }
+  .bookmark img {
+    width: 50px;
+    height: 50px;
+  }
+  .banner .content h2 {
+    font-size: 20px;
+  }
+  .banner .content p {
+    font-size: 12px;
+  }
+  .gallery .display .img-box {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery .display .img-box img {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery .display .img-box video {
+    width: 100px;
+    height: 100px;
+  }
+  .content-section {
+    padding-top: 30px;
+  }
+  .content-section .content-box img {
+    width: 100px;
+    height: 50px;
+  }
+  .content-section .content-box h2 {
+    font-size: 20px;
+  }
+  .content-section .content-box p {
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .content-section .content-box img {
+    width: 50px;
+    height: 25px;
+  }
+  .review-section .info-box {
+    width: 200px;
+  }
+  .review-section .info-box .img-box {
+    width: 30px;
+    height: 30px;
+  }
+  .review-section .info-box p {
+    font-size: 12px;
+  }
+  .review-section .review {
+    width: 200px;
+  }
+}
+/*# sourceMappingURL=media.css.map */

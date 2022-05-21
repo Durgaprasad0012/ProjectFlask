@@ -24,7 +24,7 @@
 <body>
     <!-- header -->
     <header>
-        <div class="navigation fixed-top">
+        <div id="navigation" class="navigation">
             <nav class="navbar navbar-expand-sm">
                 <div class="container">
                     <a class="navbar-brand" href="/"><img src="{{url_for('static', filename = 'img/logo.png')}}" alt="">
@@ -45,13 +45,19 @@
     </header>
     <!-- header end -->
 
+    <!-- Bookmark -->
+    <a href="#navigation" class="bookmark">
+        <img src="{{url_for('static', filename = 'img/logo.png')}}" alt="book">
+    </a>
+    <!-- Bookmark end -->
+
     <!-- banner -->
-    <section>
+    <section id="mb">
         {% block banner %} {% endblock %}
     </section>
     <!-- banner end -->
     <!-- content -->
-    <section>
+    <section id="sb">
         <div id="content" class="content-section">
             <div class="content-box container">
                 <div class="img">

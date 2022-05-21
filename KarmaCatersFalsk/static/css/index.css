@@ -19,10 +19,7 @@ body {
 /* header */
 .navigation {
   width: 100vw;
-  height: 15vh;
-  background: none;
-  -webkit-transition: background-color .5s linear;
-  transition: background-color .5s linear;
+  height: 12vh;
 }
 
 .navigation .navbar {
@@ -41,8 +38,8 @@ body {
 }
 
 .navigation .navbar .navbar-brand img {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   background: none;
 }
 
@@ -60,27 +57,43 @@ body {
   color: #fff;
 }
 
-.navbar:hover {
+.navigation .navbar:hover {
   background-color: #fff;
   color: #000;
   text-shadow: 0px 0px 5px #fff;
 }
 
-.navbar:hover .navbar-brand {
+.navigation .navbar:hover .navbar-brand {
   color: #000;
 }
 
-.navbar:hover .nav-item a {
+.navigation .navbar:hover .nav-item a {
   visibility: visible;
   color: #000;
   letter-spacing: 1px;
 }
 
-.navbar:hover .collapse {
+.navigation .navbar:hover .collapse {
   color: #000;
 }
 
 /* header end */
+/* bookmark  */
+.bookmark {
+  position: fixed;
+  top: 80vh;
+  left: 85vw;
+}
+
+.bookmark img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* bookmark end */
 /* banner */
 .banner {
   width: 100vw;
@@ -126,12 +139,13 @@ body {
   color: #fff;
   letter-spacing: 2px;
   text-align: justify;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .banner .content a {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   width: 250px;
   padding: 10px;
   border-radius: 10px;
@@ -142,7 +156,6 @@ body {
   color: none;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
-  display: none;
 }
 
 /* banner end */
@@ -181,18 +194,30 @@ body {
 }
 
 .gallery .display .img-box {
-  width: 300px;
-  height: 300px;
-  margin: 10px;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
   overflow: hidden;
   border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .gallery .display .img-box img {
+  width: 180px;
+  height: 180px;
   cursor: -webkit-grabbing;
   cursor: grabbing;
-  width: 300px;
-  height: 300px;
+  border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
   -webkit-transform: scale(1);
@@ -204,8 +229,8 @@ body {
 }
 
 .gallery .display .img-box video {
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: -webkit-grabbing;
@@ -328,7 +353,7 @@ body {
   height: 45px;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
+  font-size: 25px;
   color: #fff;
   text-align: center;
 }
@@ -382,7 +407,8 @@ body {
   border-radius: 10px;
 }
 
-.booking-view .details input, .booking-view .details textarea {
+.booking-view .details input,
+.booking-view .details textarea {
   background: none;
   border: none;
   border-bottom: 1px solid #fff;
@@ -428,10 +454,11 @@ footer .review-section {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px;
+  padding-bottom: 100px;
 }
 
 footer .review-section .info-box {
-  width: 350px;
+  width: 500px;
   border: none;
   background: none;
 }
@@ -470,6 +497,7 @@ footer .review-section .review {
 
 footer .review-section .review input,
 footer .review-section .review textarea {
+  width: 100%;
   border: none;
   background: none;
   border-bottom: 1px solid #ff5e08;
@@ -481,6 +509,7 @@ footer .review-section .review label {
 
 footer span {
   color: blue;
+  font-size: 14px;
 }
 
 footer span b {
@@ -489,16 +518,62 @@ footer span b {
 
 /* footer end */
 /* media Query */
-@media (max-width: 400px) {
+@media screen and (max-width: 900px) {
+  .bookmark {
+    top: 90vh;
+  }
+  .bookmark img {
+    width: 50px;
+    height: 50px;
+  }
   .banner .content h2 {
-    font-size: 35px;
+    font-size: 20px;
+  }
+  .banner .content p {
+    font-size: 12px;
+  }
+  .gallery .display .img-box {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery .display .img-box img {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery .display .img-box video {
+    width: 100px;
+    height: 100px;
+  }
+  .content-section {
+    padding-top: 30px;
+  }
+  .content-section .content-box img {
+    width: 100px;
+    height: 50px;
+  }
+  .content-section .content-box h2 {
+    font-size: 20px;
+  }
+  .content-section .content-box p {
+    font-size: 12px;
+    font-weight: normal;
   }
   .content-section .content-box img {
     width: 50px;
     height: 25px;
   }
+  .review-section .info-box {
+    width: 200px;
+  }
+  .review-section .info-box .img-box {
+    width: 30px;
+    height: 30px;
+  }
+  .review-section .info-box p {
+    font-size: 12px;
+  }
   .review-section .review {
-    width: 290px;
+    width: 200px;
   }
 }
 /*# sourceMappingURL=index.css.map */

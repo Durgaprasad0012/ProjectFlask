@@ -18,7 +18,6 @@ app.config['MYSQL_DATABASE_DB'] = 'karmaCaters'
 
 # main config
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-# app.config['MAIL_PORT'] = 465   #email-portnumber for ssl
 app.config['MAIL_PORT'] = 587  #email-portnumber for tls
 app.config['MAIL_USERNAME'] = 'karma.caters007@gmail.com'
 app.config['MAIL_PASSWORD'] = 'karma@123'
@@ -164,15 +163,19 @@ def bookDetails(id):
 """Admin section"""
 @app.route('/Admin')
 def admin():
+    msg = ""
     if 'uid' in session and 'role' in session:
-        return redirect('/'+session['role']+'/home')
+        if request.cookies.get('role'):
+            return redirect('/'+session['role']+'/home')
     else:
-        return render_template('Admin/login.html')
+        msg = 'Please Enter the details details'
+        return render_template('Admin/login.html',msg=msg)
 
 @app.route('/login', methods = ["POST"])
 def login():
     if 'uid' in session and 'role' in session:
-        return redirect('/'+session['role']+'/home')
+        if request.cookies.get('role'):
+            return redirect('/'+session['role']+'/home')
     msg = ''
     if request.method == 'POST':
         data = request.form
@@ -180,18 +183,18 @@ def login():
         vals = (data['email'],data['pswd'])
         res = getData(sql,vals)
         if len(res):
-            # resp = make_response(render_template('Admin/login.html'))
-            # resp.set_cookie('uid', res[0][0])
-            # resp.set_cookie('role', res[0][1])
-            # resp.set_cookie('user', res[0][2])
+            roler = request.cookies.get('role')
+            if roler == None:
+                resp = make_response(render_template('Admin/login.html'))
+                resp.set_cookie('role', res[0][1])
+                resp.set_cookie('user', res[0][2])
+                return resp
             session['uid'] = res[0][0]
             session['role'] = res[0][1]
             session['user'] = res[0][2]
-            role = request.cookies.get('role')
             return redirect('/'+res[0][1]+'/home')
         else:
-            msg = 'Invalid login details'
-    return render_template('Admin/login.html',msg=msg)
+            return redirect('/Admin')
 
 @app.route('/Admin/home')
 def adminHome():
@@ -287,7 +290,7 @@ def adminAddpost():
             file.save('static/uploads/'+secure_filename(fname))
             return redirect('/Admin/uploads')
         return render_template("Admin/uploads.html")
-    else:return render_template('Admin/login.html')
+    else:return redirect('/Admin')
 
 @app.route('/Admin/Editpost/<int:id>', methods = ["POST"])
 def adminEditPost(id):
